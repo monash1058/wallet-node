@@ -5,6 +5,7 @@ import { userModel } from '../models/user'
 var multer  = require('multer')
 const path = require('path')
 import { sentMessage } from '../helpers/utils/fcm'
+import { createJWT } from '../helpers/utils/jwt'
 
 const sendSms = (number: any) => {
   const accountSid = 'AC01b69cc2118b18090908192ef33787b7'
@@ -73,9 +74,10 @@ export class UserService {
           isUserExist[0].password,
         )
         if (isCompare) {
+          const token = createJWT(isUserExist[0]._id)
           const fcmUser = await UserDataAccess.update({
             '_id': isUserExist[0]._id,
-          }, {$set: {fcmToken: payload.fcmToken }})
+          }, {$set: {fcmToken: payload.fcmToken, jwt: token }})
           return {
             message: 'Login Successfully',
             success: true,
@@ -131,15 +133,15 @@ export class UserService {
     }
   }
   async editProfile(payload: any) {
-    console.log(payload.file)
     try {
-      // const results = await s3Uploadv3(payload.file);
-      // const host = payload.headers.host
-      const filePath = payload.file.location;
       const password = await convertToHash(payload.body.password)
+      const updateVariable: any = { name:payload.body.name, password: password }
+      if(payload.file){
+        updateVariable.profileImage =  payload.file.location
+      }
       const user = await UserDataAccess.update(
         { _id: payload.body._id},
-        { $set: { name:payload.body.name, password: password, profileImage: payload.file.location } }
+        { $set:  updateVariable}
       )
       return {
         message: 'User updated successfully',

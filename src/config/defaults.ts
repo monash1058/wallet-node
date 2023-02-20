@@ -7,5 +7,6 @@ export const defaultConfig = {
   AWS_BUCKET_NAME:'pro-pay-uploads',
   AWS_BUCKET_REGION:'ap-southeast-1',
   AWS_ACCESS_KEY:'AKIA4MGTFGJ6ZVZJA54K',
-  AWS_SECRET_KEY:'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'
+  AWS_SECRET_KEY:'BBd9vwPAA9H9L0qVLt+iDNsuSgyH0uroMHVc7OZ8',
+  TOKEN_KEY:'ahgsc3652fwgsd623e2vtd276f23dvd2367dv27d2eu7dg2'
 }
