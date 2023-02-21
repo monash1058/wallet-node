@@ -8,4 +8,5 @@ export declare const defaultConfig: {
     AWS_BUCKET_REGION: string;
     AWS_ACCESS_KEY: string;
     AWS_SECRET_KEY: string;
+    TOKEN_KEY: string;
 };

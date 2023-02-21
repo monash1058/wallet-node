@@ -17,6 +17,7 @@ const user_2 = require("../models/user");
 var multer = require('multer');
 const path = require('path');
 const fcm_1 = require("../helpers/utils/fcm");
+const jwt_1 = require("../helpers/utils/jwt");
 const sendSms = (number) => {
     const accountSid = 'AC01b69cc2118b18090908192ef33787b7';
     const authToken = '84a638792cc7363bdb04942a3e0f7512';
@@ -88,9 +89,10 @@ class UserService {
                 else {
                     const isCompare = yield (0, bycrpt_1.compareHash)(payload.password, isUserExist[0].password);
                     if (isCompare) {
+                        const token = (0, jwt_1.createJWT)(isUserExist[0]._id);
                         const fcmUser = yield UserDataAccess.update({
                             '_id': isUserExist[0]._id,
-                        }, { $set: { fcmToken: payload.fcmToken } });
+                        }, { $set: { fcmToken: payload.fcmToken, jwt: token } });
                         return {
                             message: 'Login Successfully',
                             success: true,
@@ -157,11 +159,12 @@ class UserService {
     editProfile(payload) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                // const results = await s3Uploadv3(payload.file);
-                // const host = payload.headers.host
-                // const filePath = payload.protocol + "://" + host + '/uploads/' + payload.file.filename;
                 const password = yield (0, bycrpt_1.convertToHash)(payload.body.password);
-                const user = yield UserDataAccess.update({ _id: payload.body._id }, { $set: { name: payload.body.name, password: password, profileImage: payload.file.filename } });
+                const updateVariable = { name: payload.body.name, password: password };
+                if (payload.file) {
+                    updateVariable.profileImage = payload.file.location;
+                }
+                const user = yield UserDataAccess.update({ _id: payload.body._id }, { $set: updateVariable });
                 return {
                     message: 'User updated successfully',
                     data: user,

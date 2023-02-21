@@ -17,4 +17,5 @@ exports.prodConfig = {
     AWS_BUCKET_REGION: process.env.AWS_BUCKET_REGION || defaults_1.defaultConfig.AWS_BUCKET_REGION,
     AWS_ACCESS_KEY: process.env.AWS_ACCESS_KEY || defaults_1.defaultConfig.AWS_ACCESS_KEY,
     AWS_SECRET_KEY: process.env.AWS_SECRET_KEY || defaults_1.defaultConfig.AWS_SECRET_KEY,
+    TOKEN_KEY: process.env.TOKEN_KEY || defaults_1.defaultConfig.TOKEN_KEY,
 };

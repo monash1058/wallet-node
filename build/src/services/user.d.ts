@@ -32,18 +32,18 @@ export declare class UserService {
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
             createdAt: Date;
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
@@ -60,18 +60,18 @@ export declare class UserService {
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
             createdAt: Date;
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
@@ -84,18 +84,18 @@ export declare class UserService {
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
             createdAt: Date;
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
@@ -108,18 +108,18 @@ export declare class UserService {
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
             createdAt: Date;
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
@@ -132,18 +132,18 @@ export declare class UserService {
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
             createdAt: Date;
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
@@ -156,18 +156,18 @@ export declare class UserService {
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
             createdAt: Date;
             name: string;
             phone: number;
             password: string;
-            profileImage: string;
             amount?: number | undefined;
             jwt?: string | undefined;
+            profileImage?: string | undefined;
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
