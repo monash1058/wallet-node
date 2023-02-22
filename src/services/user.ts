@@ -8,9 +8,9 @@ import { sentMessage } from '../helpers/utils/fcm'
 import { createJWT } from '../helpers/utils/jwt'
 
 const sendSms = (number: any) => {
-  const accountSid = 'AC01b69cc2118b18090908192ef33787b7'
-  const authToken = '831224e023d4978e878e925fda6fefb7'
-  const verifySid = 'VA3d9f3d02944342c03fad54740b8cecdc'
+  const accountSid = 'AC1e62646604212be2462698d1f0ff7077'
+  const authToken = '02691cc414ca6113763554f1a5cf1c82'
+  const verifySid = 'VAd45dc468b83408ad8a5c080b39e92fc1'
   const client = require('twilio')(accountSid, authToken)
 
   client.verify.v2.services(verifySid).verifications.create({ to: '+65' + number, channel: 'sms' }).then((verification: any) => console.log(verification.status))
