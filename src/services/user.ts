@@ -8,9 +8,9 @@ import { sentMessage } from '../helpers/utils/fcm'
 import { createJWT } from '../helpers/utils/jwt'
 
 const sendSms = (number: any) => {
-  const accountSid = 'AC01b69cc2118b18090908192ef33787b7'
-  const authToken = '84a638792cc7363bdb04942a3e0f7512'
-  const verifySid = 'VA3d9f3d02944342c03fad54740b8cecdc'
+  const accountSid = 'AC1e62646604212be2462698d1f0ff7077'
+  const authToken = 'fa4df0d7f79e47923ff1f63aa23e67ee'
+  const verifySid = 'VA964c43a6a3cb5ceabe9f813ba9a8aad4'
   const client = require('twilio')(accountSid, authToken)
 
   client.verify.v2
@@ -35,10 +35,12 @@ export class UserService {
       }
 
       const user = await UserDataAccess.insert(payload)
+      const token = createJWT(user._id);
+      const fcmUser = await UserDataAccess.update({'_id': user._id}, {$set: {jwt: token }})
       return {
         message: 'User inserted successfully',
         success: true,
-        data: user,
+        data: fcmUser,
       }
     } catch (e: any) {
       throw new Error(e)

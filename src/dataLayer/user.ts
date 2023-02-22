@@ -42,4 +42,13 @@ export class UserDataLayer {
       throw new Error(e)
     }
   }
+  async insertRegister(payload: any, query:any) {
+    try {
+      const userSchema = new userModel(payload)
+      const user = await userSchema.save()
+      return user
+    } catch (e: any) {
+      throw new Error(e)
+    }
+  } 
 }
