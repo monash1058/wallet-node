@@ -10,7 +10,7 @@ const s3 = new aws.S3();
 
 const configAws = {
   secretAccessKey: process.env.AWS_SECRET_KEY,
-  endpoint: "https://wallet-node-production.up.railway.app/",
+  endpoint: "https://wallet-node-production.up.railway.app",
   accessKeyId: process.env.AWS_ACCESS_ID,
   region: process.env.AWS_BUCKET_REGION,
 }
