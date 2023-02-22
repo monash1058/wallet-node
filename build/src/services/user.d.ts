@@ -27,7 +27,7 @@ export declare class UserService {
     register(payload: any): Promise<{
         message: string;
         success: boolean;
-        data: import("mongoose").Document<unknown, any, {
+        data: (import("mongoose").Document<unknown, any, {
             createdAt: Date;
             name: string;
             phone: number;
@@ -47,7 +47,7 @@ export declare class UserService {
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
-        };
+        }) | null;
     }>;
     verifyNumber(payload: any): Promise<{
         message: string;

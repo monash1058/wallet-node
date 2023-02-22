@@ -129,4 +129,25 @@ export declare class UserDataLayer {
     } & {
         _id: import("mongoose").Types.ObjectId;
     }) | null>;
+    insertRegister(payload: any, query: any): Promise<import("mongoose").Document<unknown, any, {
+        createdAt: Date;
+        name: string;
+        phone: number;
+        password: string;
+        amount?: number | undefined;
+        jwt?: string | undefined;
+        profileImage?: string | undefined;
+        fcmToken?: string | undefined;
+    }> & {
+        createdAt: Date;
+        name: string;
+        phone: number;
+        password: string;
+        amount?: number | undefined;
+        jwt?: string | undefined;
+        profileImage?: string | undefined;
+        fcmToken?: string | undefined;
+    } & {
+        _id: import("mongoose").Types.ObjectId;
+    }>;
 }

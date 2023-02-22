@@ -68,5 +68,17 @@ class UserDataLayer {
             }
         });
     }
+    insertRegister(payload, query) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const userSchema = new user_1.userModel(payload);
+                const user = yield userSchema.save();
+                return user;
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
+    }
 }
 exports.UserDataLayer = UserDataLayer;

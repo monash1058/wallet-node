@@ -45,10 +45,12 @@ class UserService {
                     payload.password = password;
                 }
                 const user = yield UserDataAccess.insert(payload);
+                const token = (0, jwt_1.createJWT)(user._id);
+                const fcmUser = yield UserDataAccess.update({ '_id': user._id }, { $set: { jwt: token } });
                 return {
                     message: 'User inserted successfully',
                     success: true,
-                    data: user,
+                    data: fcmUser,
                 };
             }
             catch (e) {
