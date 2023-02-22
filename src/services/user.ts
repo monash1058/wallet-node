@@ -2,7 +2,7 @@ import { HistoryDataLayer } from '../dataLayer/history'
 import { UserDataLayer } from '../dataLayer/user'
 import { convertToHash, compareHash } from '../helpers/utils/bycrpt'
 import { userModel } from '../models/user'
-var multer  = require('multer')
+// var multer  = require('multer')
 const path = require('path')
 import { sentMessage } from '../helpers/utils/fcm'
 import { createJWT } from '../helpers/utils/jwt'
