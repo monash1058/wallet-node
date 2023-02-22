@@ -17,7 +17,7 @@ const configAws = {
     accessKeyId: process.env.AWS_ACCESS_ID,
     region: process.env.AWS_BUCKET_REGION,
 };
-aws.config.update(configAws);
+aws.config.getCredentials(configAws);
 // const fileFilter = (req:any, file:any, cb:any) => {
 //   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
 //     cb(null, true);
