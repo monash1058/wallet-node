@@ -12,19 +12,12 @@ const aws = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const s3 = new aws.S3();
-// const configAws = {
-//   secretAccessKey: process.env.AWS_SECRET_KEY,
-//   accessKeyId: process.env.AWS_ACCESS_ID,
-//   region: process.env.AWS_BUCKET_REGION,
-// }
-// aws.config.update(configAws);
-var credentials = new aws.SharedIniFileCredentials({
+const configAws = {
     secretAccessKey: process.env.AWS_SECRET_KEY,
     accessKeyId: process.env.AWS_ACCESS_ID,
-    region: process.env.AWS_BUCKET_REGION
-});
-aws.config.credentials = credentials;
-aws.config.update(credentials);
+    region: process.env.AWS_BUCKET_REGION,
+};
+aws.config.update(configAws);
 // const fileFilter = (req:any, file:any, cb:any) => {
 //   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
 //     cb(null, true);
