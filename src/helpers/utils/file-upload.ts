@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
-const { config } = require("../../config");
+import dotenv from 'dotenv'
+dotenv.config()
 const aws = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
@@ -8,9 +9,9 @@ const s3 = new aws.S3();
 
 
 const configAws = {
-  secretAccessKey: config.AWS_SECRET_KEY,
-  accessKeyId: config.AWS_ACCESS_KEY,
-  region: config.AWS_BUCKET_REGION,
+  secretAccessKey: process.env.AWS_SECRET_KEY,
+  accessKeyId: process.env.AWS_ACCESS_ID,
+  region: process.env.AWS_BUCKET_REGION,
 }
 aws.config.update(configAws);
 // const fileFilter = (req:any, file:any, cb:any) => {
