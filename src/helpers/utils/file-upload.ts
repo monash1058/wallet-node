@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const { config } = require("../../config");
 const aws = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
@@ -8,9 +7,9 @@ const s3 = new aws.S3();
 
 
 const configAws = {
-  secretAccessKey: config.AWS_SECRET_KEY,
-  accessKeyId: config.AWS_ACCESS_KEY,
-  region: config.AWS_BUCKET_REGION,
+  secretAccessKey: 'BBd9vwPAA9H9L0qVLt+iDNsuSgyH0uroMHVc7OZ8',
+  accessKeyId: 'AKIA4MGTFGJ6ZVZJA54K',
+  region: "ap-southeast-1",
 }
 aws.config.update(configAws);
 // const fileFilter = (req:any, file:any, cb:any) => {
