@@ -133,14 +133,14 @@ export class UserService {
   }
   async editProfile(payload: any) {
     try {
-      const password = await convertToHash(payload.body.password)
-      // const updateVariable: any = { name:payload.body.name, password: password }
+      const password = await convertToHash(payload.password)
+      const updateVariable: any = { name:payload.name, password: password }
       // if(payload.file){
       //   updateVariable.profileImage =  payload.file.location
       // }
       const user = await UserDataAccess.update(
         { _id: payload.body._id},
-        { name:payload.body.name, password: password}
+        { $set:  updateVariable}
       )
       return {
         message: 'User updated successfully',

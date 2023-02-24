@@ -54,7 +54,7 @@ export class UserController {
   }
   async editProfile(req: Request, res: Response, next: any) {
     try {
-      const data = await userService.editProfile(req)
+      const data = await userService.editProfile(req.body)
       res.json(data)
     } catch (err) {
       next(err)

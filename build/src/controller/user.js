@@ -82,7 +82,7 @@ class UserController {
     editProfile(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const data = yield userService.editProfile(req);
+                const data = yield userService.editProfile(req.body);
                 res.json(data);
             }
             catch (err) {
