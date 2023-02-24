@@ -163,7 +163,7 @@ class UserService {
                 // if(payload.file){
                 //   updateVariable.profileImage =  payload.file.location
                 // }
-                const user = yield UserDataAccess.update({ _id: payload.body._id }, { $set: updateVariable });
+                const user = yield UserDataAccess.update({ _id: payload._id }, { $set: updateVariable });
                 return {
                     message: 'User updated successfully',
                     data: user,

@@ -139,7 +139,7 @@ export class UserService {
       //   updateVariable.profileImage =  payload.file.location
       // }
       const user = await UserDataAccess.update(
-        { _id: payload.body._id},
+        { _id: payload._id},
         { $set:  updateVariable}
       )
       return {
