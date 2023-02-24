@@ -135,9 +135,9 @@ export class UserService {
     try {
       const password = await convertToHash(payload.body.password)
       const updateVariable: any = { name:payload.body.name, password: password }
-      if(payload.file){
-        updateVariable.profileImage =  payload.file.location
-      }
+      // if(payload.file){
+      //   updateVariable.profileImage =  payload.file.location
+      // }
       const user = await UserDataAccess.update(
         { _id: payload.body._id},
         { $set:  updateVariable}

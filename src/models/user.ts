@@ -7,7 +7,7 @@ const userSchema = new Schema({
     password: { type: String, required: true },
     jwt: { type: String, required: false },
     amount: { type: Number, required: false, default: 0,},
-    profileImage: { type: String, required: false, default: null },
+    // profileImage: { type: String, required: false, default: null },
     fcmToken: {type: String, required: false},
     createdAt: { type: Date, default: new Date().toISOString()}
 
