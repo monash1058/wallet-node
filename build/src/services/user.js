@@ -159,11 +159,11 @@ class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const password = yield (0, bycrpt_1.convertToHash)(payload.body.password);
-                const updateVariable = { name: payload.body.name, password: password };
+                // const updateVariable: any = { name:payload.body.name, password: password }
                 // if(payload.file){
                 //   updateVariable.profileImage =  payload.file.location
                 // }
-                const user = yield UserDataAccess.update({ _id: payload.body._id }, { $set: updateVariable });
+                const user = yield UserDataAccess.update({ _id: payload.body._id }, { name: payload.body.name, password: password });
                 return {
                     message: 'User updated successfully',
                     data: user,
