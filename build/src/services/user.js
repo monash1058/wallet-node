@@ -67,7 +67,7 @@ class UserService {
                     throw new Error('User already Registered');
                 }
                 else {
-                    const otpResponse = yield client.verify.services(verifySid).verifications.create({ friendlyName: 'Propay', to: '+65' + payload.phone, channel: 'sms' });
+                    const otpResponse = yield client.verify.services(verifySid).verifications.create({ to: '+65' + payload.phone, channel: 'sms' });
                     // sendSms(payload.phone)
                     return {
                         message: otpResponse,
