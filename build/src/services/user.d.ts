@@ -48,7 +48,7 @@ export declare class UserService {
         }) | null;
     }>;
     verifyNumber(payload: any): Promise<{
-        message: string;
+        message: any;
     }>;
     login(payload: any): Promise<{
         message: string;

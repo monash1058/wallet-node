@@ -18,12 +18,14 @@ const user_2 = require("../models/user");
 const path = require('path');
 const fcm_1 = require("../helpers/utils/fcm");
 const jwt_1 = require("../helpers/utils/jwt");
+const accountSid = 'AC1e62646604212be2462698d1f0ff7077';
+const authToken = '91ca24945338b0a11ef602dc517f599a';
+const verifySid = 'VAd45dc468b83408ad8a5c080b39e92fc1';
+const client = require('twilio')(accountSid, authToken, {
+    lazyLoading: true
+});
 const sendSms = (number) => {
-    const accountSid = 'AC1e62646604212be2462698d1f0ff7077';
-    const authToken = '02691cc414ca6113763554f1a5cf1c82';
-    const verifySid = 'VAd45dc468b83408ad8a5c080b39e92fc1';
-    const client = require('twilio')(accountSid, authToken);
-    client.verify.v2.services(verifySid).verifications.create({ to: '+65' + number, channel: 'sms' }).then((verification) => console.log(verification.status));
+    // .then((verification: any) => console.log(verification.status))
 };
 const UserDataAccess = new user_1.UserDataLayer();
 const HistoryDataAccess = new history_1.HistoryDataLayer();
@@ -65,9 +67,10 @@ class UserService {
                     throw new Error('User already Registered');
                 }
                 else {
-                    sendSms(payload.phone);
+                    const otpResponse = yield client.verify.services(verifySid).verifications.create({ friendlyName: 'Propay', to: '+65' + payload.phone, channel: 'sms' });
+                    // sendSms(payload.phone)
                     return {
-                        message: 'User not registered yet',
+                        message: otpResponse,
                     };
                 }
             }
