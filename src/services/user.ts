@@ -8,14 +8,17 @@ import { sentMessage } from '../helpers/utils/fcm'
 import { createJWT } from '../helpers/utils/jwt'
 
 const accountSid = 'AC1e62646604212be2462698d1f0ff7077'
-const authToken = '91ca24945338b0a11ef602dc517f599a'
-const verifySid = 'VAd45dc468b83408ad8a5c080b39e92fc1'
-const client = require('twilio')(accountSid, authToken ,{
-  lazyLoading: true
-})
-const sendSms = (number: any) => {
-// .then((verification: any) => console.log(verification.status))
-}
+  const authToken = '5c374dee7d2c5fb212dd974225faeaad'
+  const verifySid = 'VAd45dc468b83408ad8a5c080b39e92fc1'
+  const client = require('twilio')('AC1e62646604212be2462698d1f0ff7077', '5c374dee7d2c5fb212dd974225faeaad')
+// const sendSms = (number: any) => {
+//   const accountSid = 'AC1e62646604212be2462698d1f0ff7077'
+//   const authToken = '91ca24945338b0a11ef602dc517f599a'
+//   const verifySid = 'VAd45dc468b83408ad8a5c080b39e92fc1'
+//   const client = require('twilio')(accountSid, authToken)
+
+//   client.verify.v2.services(verifySid).verifications.create({ to: '+65' + number, channel: 'sms' }).then((verification: any) => console.log(verification.status))
+// }
 
 const UserDataAccess = new UserDataLayer()
 const HistoryDataAccess = new HistoryDataLayer()
@@ -52,8 +55,7 @@ export class UserService {
       if (isUserExist.length !== 0) {
         throw new Error('User already Registered')
       } else {
-       const otpResponse = await  client.verify.services(verifySid).verifications.create({ to: '+65' + payload.phone, channel: 'sms' })
-        // sendSms(payload.phone)
+       const otpResponse = client.verify.services('VAd45dc468b83408ad8a5c080b39e92fc1').verifications.create({ to: '+65' + payload.phone, channel: 'sms' })
         return {
           message: otpResponse,
         }
