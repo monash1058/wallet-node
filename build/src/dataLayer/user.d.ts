@@ -30,6 +30,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     }> & {
@@ -38,6 +39,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     } & {
@@ -49,6 +51,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     }> & {
@@ -57,6 +60,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     } & {
@@ -68,6 +72,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     }> & {
@@ -76,6 +81,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     } & {
@@ -87,6 +93,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     }> & {
@@ -95,6 +102,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     } & {
@@ -106,6 +114,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     }> & {
@@ -114,6 +123,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     } & {
@@ -125,6 +135,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     }> & {
@@ -133,6 +144,7 @@ export declare class UserDataLayer {
         phone: number;
         password: string;
         amount?: number | undefined;
+        goldRate?: number | undefined;
         jwt?: string | undefined;
         fcmToken?: string | undefined;
     } & {

@@ -11,7 +11,8 @@ const historySchema = new Schema({
   createdAt: {
     type: String,
     default: new Date().toISOString(),
-  }
+  },
+  goldRate: {type: Number, required: false}
 })
 
 export const historyModel = mongoose.model('history', historySchema)

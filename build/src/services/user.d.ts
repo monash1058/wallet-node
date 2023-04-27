@@ -33,6 +33,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
@@ -41,6 +42,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         } & {
@@ -59,6 +61,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
@@ -67,6 +70,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         } & {
@@ -81,6 +85,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
@@ -89,6 +94,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         } & {
@@ -103,6 +109,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
@@ -111,11 +118,12 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
-        }) | null;
+        })[];
     }>;
     getAmount(payload: any): Promise<{
         message: string;
@@ -125,6 +133,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
@@ -133,6 +142,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         } & {
@@ -147,6 +157,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         }> & {
@@ -155,6 +166,7 @@ export declare class UserService {
             phone: number;
             password: string;
             amount?: number | undefined;
+            goldRate?: number | undefined;
             jwt?: string | undefined;
             fcmToken?: string | undefined;
         } & {
@@ -171,6 +183,7 @@ export declare class UserService {
             reciveBy: string;
             createdAt: string;
             message?: string | undefined;
+            goldRate?: number | undefined;
         }> & {
             senderID: import("mongoose").Types.ObjectId;
             reciverID: import("mongoose").Types.ObjectId;
@@ -179,6 +192,7 @@ export declare class UserService {
             reciveBy: string;
             createdAt: string;
             message?: string | undefined;
+            goldRate?: number | undefined;
         } & {
             _id: import("mongoose").Types.ObjectId;
         };
@@ -194,6 +208,7 @@ export declare class UserService {
                 reciveBy: string;
                 createdAt: string;
                 message?: string | undefined;
+                goldRate?: number | undefined;
             }> & {
                 senderID: import("mongoose").Types.ObjectId;
                 reciverID: import("mongoose").Types.ObjectId;
@@ -202,6 +217,7 @@ export declare class UserService {
                 reciveBy: string;
                 createdAt: string;
                 message?: string | undefined;
+                goldRate?: number | undefined;
             } & {
                 _id: import("mongoose").Types.ObjectId;
             })[];
@@ -213,6 +229,7 @@ export declare class UserService {
                 reciveBy: string;
                 createdAt: string;
                 message?: string | undefined;
+                goldRate?: number | undefined;
             }> & {
                 senderID: import("mongoose").Types.ObjectId;
                 reciverID: import("mongoose").Types.ObjectId;
@@ -221,6 +238,7 @@ export declare class UserService {
                 reciveBy: string;
                 createdAt: string;
                 message?: string | undefined;
+                goldRate?: number | undefined;
             } & {
                 _id: import("mongoose").Types.ObjectId;
             })[];
@@ -232,6 +250,7 @@ export declare class UserService {
                 reciveBy: string;
                 createdAt: string;
                 message?: string | undefined;
+                goldRate?: number | undefined;
             }> & {
                 senderID: import("mongoose").Types.ObjectId;
                 reciverID: import("mongoose").Types.ObjectId;
@@ -240,6 +259,7 @@ export declare class UserService {
                 reciveBy: string;
                 createdAt: string;
                 message?: string | undefined;
+                goldRate?: number | undefined;
             } & {
                 _id: import("mongoose").Types.ObjectId;
             })[];

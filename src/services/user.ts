@@ -109,7 +109,7 @@ export class UserService {
   }
   async getDashboardData(payload: any) {
     try {
-      const user = await UserDataAccess.findOne({
+      const user = await UserDataAccess.find({
          _id: payload._id,
       })
       return {
@@ -122,14 +122,16 @@ export class UserService {
   }
   async getAmount(payload: any) {
     try {
-      const user = await UserDataAccess.update(
+      const userId: any = await UserDataAccess.findOne(
+        { _id: payload._id}
+      )
+      const userDatas = await UserDataAccess.update(
         { _id: payload._id},
-        { $inc: { amount: payload.amount },
-      }
+        {$inc: { amount: payload.amount}, goldRate: userId?.goldRate + payload.goldRate}
       )
       return {
         message: 'Ammount added to you wallet successfully',
-        data: user,
+        data: userDatas,
       }
     } catch (e: any) {
       throw new Error(e)
@@ -156,24 +158,25 @@ export class UserService {
   }
   async transferMoney(payload: any) {
     try {
-      const sendUserData:any = await userModel.findById(payload.senderID)
+      const sendUserData:any = await userModel.findById(payload.senderID);
+      const reciveUserData:any = await userModel.findById(payload.reciverID);
       if(sendUserData){
         if(sendUserData.amount > payload.amount){
-          const sendUser = await UserDataAccess.update(
+          const sendUser: any = await UserDataAccess.update(
             { _id: payload.senderID},
             { $inc: { amount: -payload.amount, message: payload.message },
           }
           )
           const reciverUser = await UserDataAccess.update(
             { _id: payload.reciverID},
-            { $inc: { amount: payload.amount },
-          }
+            {$inc: { amount: payload.amount}, goldRate: payload.goldRate}
           )
+          console.log(payload)
          const history = await HistoryDataAccess.insert({
           ...payload, 
           ...{sendBy:sendUser?.name, reciveBy:reciverUser?.name}
          })
-         await sentMessage(reciverUser?.fcmToken, 'Pro-Pay', `Recived amount ${payload.amount}$ from ${sendUser?.name}`)
+        //  await sentMessage(reciverUser?.fcmToken, 'Pro-Pay', `Recived amount ${payload.amount}$ from ${sendUser?.name}`)
           return {
             message: 'Amount Transferred successfully ',
             data: history,

@@ -9,8 +9,8 @@ const userSchema = new Schema({
     amount: { type: Number, required: false, default: 0,},
     // profileImage: { type: String, required: false, default: null },
     fcmToken: {type: String, required: false},
-    createdAt: { type: Date, default: new Date().toISOString()}
-
+    createdAt: { type: Date, default: new Date().toISOString()},
+    goldRate: {type: Number, required: false}
 })
 
 export const userModel = mongoose.model('users', userSchema)

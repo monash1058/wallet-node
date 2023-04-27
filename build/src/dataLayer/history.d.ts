@@ -32,6 +32,7 @@ export declare class HistoryDataLayer {
         reciveBy: string;
         createdAt: string;
         message?: string | undefined;
+        goldRate?: number | undefined;
     }> & {
         senderID: import("mongoose").Types.ObjectId;
         reciverID: import("mongoose").Types.ObjectId;
@@ -40,6 +41,7 @@ export declare class HistoryDataLayer {
         reciveBy: string;
         createdAt: string;
         message?: string | undefined;
+        goldRate?: number | undefined;
     } & {
         _id: import("mongoose").Types.ObjectId;
     }>;
@@ -51,6 +53,7 @@ export declare class HistoryDataLayer {
         reciveBy: string;
         createdAt: string;
         message?: string | undefined;
+        goldRate?: number | undefined;
     }> & {
         senderID: import("mongoose").Types.ObjectId;
         reciverID: import("mongoose").Types.ObjectId;
@@ -59,6 +62,7 @@ export declare class HistoryDataLayer {
         reciveBy: string;
         createdAt: string;
         message?: string | undefined;
+        goldRate?: number | undefined;
     } & {
         _id: import("mongoose").Types.ObjectId;
     })[]>;
@@ -70,6 +74,7 @@ export declare class HistoryDataLayer {
         reciveBy: string;
         createdAt: string;
         message?: string | undefined;
+        goldRate?: number | undefined;
     }> & {
         senderID: import("mongoose").Types.ObjectId;
         reciverID: import("mongoose").Types.ObjectId;
@@ -78,6 +83,7 @@ export declare class HistoryDataLayer {
         reciveBy: string;
         createdAt: string;
         message?: string | undefined;
+        goldRate?: number | undefined;
     } & {
         _id: import("mongoose").Types.ObjectId;
     })[]>;

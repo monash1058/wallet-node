@@ -16,7 +16,6 @@ const bycrpt_1 = require("../helpers/utils/bycrpt");
 const user_2 = require("../models/user");
 // var multer  = require('multer')
 const path = require('path');
-const fcm_1 = require("../helpers/utils/fcm");
 const jwt_1 = require("../helpers/utils/jwt");
 const accountSid = 'AC1e62646604212be2462698d1f0ff7077';
 const authToken = '5c374dee7d2c5fb212dd974225faeaad';
@@ -131,7 +130,7 @@ class UserService {
     getDashboardData(payload) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const user = yield UserDataAccess.findOne({
+                const user = yield UserDataAccess.find({
                     _id: payload._id,
                 });
                 return {
@@ -147,11 +146,11 @@ class UserService {
     getAmount(payload) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const user = yield UserDataAccess.update({ _id: payload._id }, { $inc: { amount: payload.amount },
-                });
+                const userId = yield UserDataAccess.findOne({ _id: payload._id });
+                const userDatas = yield UserDataAccess.update({ _id: payload._id }, { $inc: { amount: payload.amount }, goldRate: (userId === null || userId === void 0 ? void 0 : userId.goldRate) + payload.goldRate });
                 return {
                     message: 'Ammount added to you wallet successfully',
-                    data: user,
+                    data: userDatas,
                 };
             }
             catch (e) {
@@ -182,14 +181,15 @@ class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const sendUserData = yield user_2.userModel.findById(payload.senderID);
+                const reciveUserData = yield user_2.userModel.findById(payload.reciverID);
                 if (sendUserData) {
                     if (sendUserData.amount > payload.amount) {
                         const sendUser = yield UserDataAccess.update({ _id: payload.senderID }, { $inc: { amount: -payload.amount, message: payload.message },
                         });
-                        const reciverUser = yield UserDataAccess.update({ _id: payload.reciverID }, { $inc: { amount: payload.amount },
-                        });
+                        const reciverUser = yield UserDataAccess.update({ _id: payload.reciverID }, { $inc: { amount: payload.amount }, goldRate: payload.goldRate });
+                        console.log(payload);
                         const history = yield HistoryDataAccess.insert(Object.assign(Object.assign({}, payload), { sendBy: sendUser === null || sendUser === void 0 ? void 0 : sendUser.name, reciveBy: reciverUser === null || reciverUser === void 0 ? void 0 : reciverUser.name }));
-                        yield (0, fcm_1.sentMessage)(reciverUser === null || reciverUser === void 0 ? void 0 : reciverUser.fcmToken, 'Pro-Pay', `Recived amount ${payload.amount}$ from ${sendUser === null || sendUser === void 0 ? void 0 : sendUser.name}`);
+                        //  await sentMessage(reciverUser?.fcmToken, 'Pro-Pay', `Recived amount ${payload.amount}$ from ${sendUser?.name}`)
                         return {
                             message: 'Amount Transferred successfully ',
                             data: history,

@@ -7,6 +7,7 @@ export declare const historyModel: mongoose.Model<{
     reciveBy: string;
     createdAt: string;
     message?: string | undefined;
+    goldRate?: number | undefined;
 }, {}, {}, {}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     senderID: mongoose.Types.ObjectId;
     reciverID: mongoose.Types.ObjectId;
@@ -15,4 +16,5 @@ export declare const historyModel: mongoose.Model<{
     reciveBy: string;
     createdAt: string;
     message?: string | undefined;
+    goldRate?: number | undefined;
 }>>;
