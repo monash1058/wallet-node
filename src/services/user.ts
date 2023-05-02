@@ -80,7 +80,7 @@ export class UserService {
           const token = createJWT(isUserExist[0]._id)
           const fcmUser = await UserDataAccess.update({
             '_id': isUserExist[0]._id,
-          }, {$set: {fcmToken: payload.fcmToken, jwt: token }})
+          }, {$set: {fcmToken: payload?.fcmToken, jwt: token }})
           return {
             message: 'Login Successfully',
             success: true,
@@ -171,12 +171,13 @@ export class UserService {
             { _id: payload.reciverID},
             {$inc: { amount: payload.amount}, goldRate: payload.goldRate}
           )
-          console.log(payload)
          const history = await HistoryDataAccess.insert({
           ...payload, 
           ...{sendBy:sendUser?.name, reciveBy:reciverUser?.name}
          })
-        //  await sentMessage(reciverUser?.fcmToken, 'Pro-Pay', `Recived amount ${payload.amount}$ from ${sendUser?.name}`)
+         if(reciverUser?.fcmToken != null){
+          await sentMessage(reciverUser?.fcmToken, 'Pro-Pay', `Recived amount ${payload.amount}$ from ${sendUser?.name}`)
+         }
           return {
             message: 'Amount Transferred successfully ',
             data: history,
