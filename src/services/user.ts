@@ -169,7 +169,7 @@ export class UserService {
           )
           const reciverUser = await UserDataAccess.update(
             { _id: payload.reciverID},
-            {$inc: { amount: payload.amount}, goldRate: payload.goldRate}
+            {$inc: { amount: payload.amount}, goldRate: reciveUserData?.goldRate + payload.goldRate}
           )
          const history = await HistoryDataAccess.insert({
           ...payload, 
